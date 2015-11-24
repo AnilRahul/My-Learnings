@@ -1,0 +1,5 @@
+org\accesingdata\Messaging_STOMP_websocket\HelloMessage.class
+org\accesingdata\Messaging_STOMP_websocket\Application.class
+org\accesingdata\Messaging_STOMP_websocket\Greeting.class
+org\accesingdata\Messaging_STOMP_websocket\WebSocketConfig.class
+org\accesingdata\Messaging_STOMP_websocket\GreetingController.class

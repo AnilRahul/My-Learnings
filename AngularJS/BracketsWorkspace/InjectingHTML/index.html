@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Alert</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap-combined.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.4.0.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body  ng-app="myApp">
+<div class="panel-body" ng-controller="myController">
+                    <div id="wizard" class="bwizard clearfix">
+                        <ol class="bwizard-steps clearfix clickable" role="tablist"
+                            style="padding: 0">
+                                
+                            <li role="tab"  aria-selected="true" ng-class="{active: isSet(0)}" style="z-index: 4;"><span
+                                    class="label badge-inverse">1</span>
+          						<a href="" ng-click="setTab(0)">GENERAL</a></li>
+          						
+       						       						
+       						<li role="tab"  aria-selected="true" ng-class="{active: isSet(1)  }" style="z-index: 4;"><span
+                                    class="label badge-inverse">2</span>
+          						<a href="" ng-click="setTab(1)">REVIEW </a></li>
+                                
+                        </ol>
+                        
+                        <div ng-show="isSet(0)" style="margin-left: 100px;">
+                            <div ng-include="'step1.html'"></div>
+                        </div>
+                        <div ng-show="isSet(1)"  style="margin-left: 100px;">
+                            <iframe src="http://www.w3schools.com"></iframe>
+                        </div>
+                        
+                    </div>
+</div>
+
+</body>
+</html>

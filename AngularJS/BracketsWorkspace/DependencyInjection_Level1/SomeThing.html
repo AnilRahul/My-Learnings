@@ -1,0 +1,22 @@
+<html>
+<head>
+   <title>AngularJS Dependency Injection</title>
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+   	<script src="myScript.js"></script>
+</head>
+<body>
+   <h2>AngularJS Sample Application</h2>
+   <a href="http://www.tutorialspoint.com/angularjs/angularjs_dependency_injection.htm">This example has been modified on top of link</a>
+   <div ng-app="mainApp" ng-controller="CalcController">
+      <p>Enter a number: <input type="number" ng-model="number" />
+      <button ng-click="square()">X<sup>2</sup></button>
+      <p>Result: {{result}}</p>
+	  <p>Some value passed during configuration: {{test}}</p>
+   </div>
+    
+	<br><br><br>
+	<h3>Now the links to the concepts used in this tutorial</h3>
+	<p> Read more about providers <a href="https://docs.angularjs.org/api/auto/service/$provide">here</a> and 
+	<a href="https://docs.angularjs.org/api/ng/type/angular.Module">here. This link talks about many important things</a></p>
+</body>
+</html>

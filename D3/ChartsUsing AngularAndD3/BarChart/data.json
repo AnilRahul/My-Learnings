@@ -1,0 +1,50 @@
+[
+    {
+        "month": "January",
+        "total_cars": 65
+    },
+    {
+        "month": "Febraury",
+        "total_cars": 35
+    },
+    {
+        "month": "March",
+        "total_cars": 20
+    },
+    {
+        "month": "April",
+        "total_cars": 40
+    },
+    {
+        "month": "May",
+        "total_cars": 50
+    },
+    {
+        "month": "June",
+        "total_cars": 30
+    },
+    {
+        "month": "July",
+        "total_cars": 45
+    },
+    {
+        "month": "August",
+        "total_cars": 25
+    },
+    {
+        "month": "September",
+        "total_cars": 40
+    },
+    {
+        "month": "October",
+        "total_cars": 60
+    },
+    {
+        "month": "November",
+        "total_cars": 70
+    },
+    {
+        "month": "December",
+        "total_cars": 85
+    }
+]

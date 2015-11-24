@@ -1,0 +1,50 @@
+[
+    {
+        "month": 0,
+        "total_cars": 65
+    },
+    {
+        "month": 1,
+        "total_cars": 35
+    },
+    {
+        "month": 2,
+        "total_cars": 20
+    },
+    {
+        "month": 3,
+        "total_cars": 40
+    },
+    {
+        "month": 4,
+        "total_cars": 50
+    },
+    {
+        "month": 5,
+        "total_cars": 30
+    },
+    {
+        "month": 6,
+        "total_cars": 45
+    },
+    {
+        "month": 7,
+        "total_cars": 25
+    },
+    {
+        "month": 8,
+        "total_cars": 40
+    },
+    {
+        "month": 9,
+        "total_cars": 60
+    },
+    {
+        "month": 10,
+        "total_cars": 70
+    },
+    {
+        "month": 11,
+        "total_cars": 85
+    }
+]

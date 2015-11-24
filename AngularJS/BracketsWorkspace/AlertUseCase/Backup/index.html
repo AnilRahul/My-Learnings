@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>Alert</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap-combined.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.4.0.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body  ng-app="myApp">
+<div ng-controller="myController">
+    <div class="span12 row-fluid">
+        <!-- START $scope.[model] updates -->
+        <div class="span12 well well-small">
+            <div class="span4">
+                <p class="nav-header">collapse/expand tableRow</p>
+                <p class="small-caps">
+                    tableRowExpanded: <b>{{tableRowExpanded}}</b><br/>
+                    tableRowIndexExpandedCurr: <b>{{tableRowIndexExpandedCurr}}</b><br/>
+                    storeIdExpanded: <b>{{storeIdExpanded}}</b>
+                    image :  <img ng-src="{{fileLocation}}"   style="width: 25px;height: 25px;"/>
+                </p>
+            </div>
+            <div class="span5">
+                <p class="nav-header">dayDataCollapse</p>{{dayDataCollapse}}</div>
+        </div>
+        <!-- END $scope.[model] updates -->
+        <!-- START TABLE -->
+        <div>
+            <table class="table table-hover table-condensed table-striped">
+                <thead class="levelOne">
+                    <tr>
+                        <th>Camera ID</th>
+                        <th>Camera Name</th>
+                        <th>MediaType</th>
+                    </tr>
+                </thead>
+                <tbody data-ng-repeat="storedata in cameraDataModel.storedata" data-ng-switch on="dayDataCollapse[$index]">
+                    <tr class="clickableRow" title="Click to toggle collapse/expand day summaries for this store." data-ng-click="selectTableRow($index, storedata.store.storeId)" >
+                        <td>{{storedata.store.storeId}}</td>
+                        <td>{{storedata.store.storeName}}</td>
+                        <td>{{storedata.store.storeAddress}}</td>
+                        <td>{{storedata.store.storeCity}}</td>
+                        <td>{{storedata.data.costTotal}}</td>
+                        <td>{{storedata.data.salesTotal}}</td>
+                        <td>{{storedata.data.revenueTotal}}</td>
+                        <td>{{storedata.data.averageEmployees}}</td>
+                        <td>{{storedata.data.averageEmployeesHours}}</td>
+                        <td><img ng-src="{{storedata.data.fileLocation}}" style="width: 25px;height: 25px;"/></td>
+                    </tr>
+                    <tr data-ng-switch-when="true">
+                        <td colspan="9">
+                            <div class="span9">
+                                <div class="pull-right">
+                                    <table class="table table-hover table-condensed table-striped">
+                                        <thead class="levelTwo">
+                                            <tr>
+                                                <th></th>
+                                                <th>Date [YYYY-MM-dd]</th>
+                                                <th>Cost</th>
+                                                <th>Sales</th>
+                                                <th>Revenue</th>
+                                                <th>Employees</th>
+                                                <th>Employees H-sum</th>
+                                                <th>MediaType</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-ng-repeat="dayData in cameraDataModel.storedata[$index].data.dayData">
+                                                <td class="pullright">
+                                                    <button type="btn btn-small" title="Click to show transactions for this specific day...NOT WORKING IN THIS DEMO." data-ng-click=""><i class="icon-list"></i>
+                                                    </button>
+                                                </td>
+                                                <td>{{dayData.date}}</td>
+                                                <td>{{dayData.cost}}</td>
+                                                <td>{{dayData.sales}}</td>
+                                                <td>{{dayData.revenue}}</td>
+                                                <td>{{dayData.employees}}</td>
+                                                <td>{{dayData.employeesHoursSum}}</td>
+                                                <td><img ng-src="{{storedata.data.fileLocation}}"  style="width: 200px;height: 200px;"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- END TABLE -->
+    </div>
+</div>
+    
+    
+    
+</body>
+</html>

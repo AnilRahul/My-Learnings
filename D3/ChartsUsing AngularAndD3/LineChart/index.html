@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="libs/d3.v3.min.js"></script>
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/moment.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+
+<div ng-app="chartApp" ng-controller="SalesController">
+  <h1>Today's Sales Chart</h1>
+  <div linear-chart chart-data="salesData">
+    </div>
+</div>
+    
+</body>
+</html>

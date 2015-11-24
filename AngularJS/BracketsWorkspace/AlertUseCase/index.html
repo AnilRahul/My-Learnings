@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>Alert</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap-combined.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.4.0.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body  ng-app="myApp">
+<div ng-controller="myController">
+    <div class="span12 row-fluid">
+       <!-- START TABLE -->
+        <div>
+            <table class="table table-hover table-condensed table-striped">
+                <thead class="levelOne">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Thumbnail</th>
+                    </tr>
+                </thead>
+                <tbody data-ng-repeat="events in eventDataModel.events" data-ng-switch on="dayDataCollapse[$index]">
+                    <tr>
+                        <td>{{events.data.id}}</td>
+                        <td>{{events.data.name}}</td>
+                        <td  class="clickableCol" title="Click to view the content."  data-ng-click="selectTableRow($index, events.data.id)">
+        <div ng-switch on="events.data.type">         
+            <div ng-switch-when="image" >
+                <img ng-src="resources/images/icon-image.png"/>  
+            </div>
+                            
+            <div ng-switch-when="video" >
+                <img ng-src="resources/images/icon-video.png"/>  
+            </div>
+                            
+            <div ng-switch-when="music" >
+                <img ng-src="resources/images/icon-audio.png"/>  
+            </div>
+        </div>
+                        
+            </td>
+                    </tr>
+                    <tr data-ng-switch-when="true">
+                        <td colspan="9">
+                            <div class="span7">
+                                <div>
+                                    <table class="table table-hover table-condensed table-striped">
+                                        <thead class="levelTwo">
+                                            <tr>                                                                                        <th>MediaType</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+       
+    <div ng-switch on="events.data.type">         
+            <div ng-switch-when="image" >
+        <img ng-src="{{events.data.fileLocation}}"  style="width: 200px;height: 200px;"/>
+            </div>
+                            
+            <div ng-switch-when="video" >
+                <video width="400" controls>
+                <source src="{{events.data.fileLocation}}" type="video/mp4">
+                Your browser does not support HTML5 video.
+               </video>    
+            </div>
+                            
+            <div ng-switch-when="music" >
+               <audio controls>
+    <source src="{{events.data.fileLocation}}" type="audio/mp3">
+                  Your browser does not support the audio element.
+               </audio>
+            </div>
+        </div>                                                
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- END TABLE -->
+    </div>
+</div>
+    
+    
+    
+</body>
+</html>

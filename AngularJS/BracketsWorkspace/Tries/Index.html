@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+
+
+ <head>
+	<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	<!-- A combobox developed by some developer -->
+	<script src="http://bradleytrager.github.io/angular-combo-box/bower_components/angular-combo-box/dist/angular-combo-box.min.js"></script>
+
+  
+	<script src="mycode.js"></script>
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
+
+</head>
+
+
+<body data-spy="scroll" data-target="#myScrollspy">
+
+<!-- by adding class=contaier, you get that centered layout -->
+<div class="container">
+			
+	
+	<!-- sm-9 is the width of your center content	 -->
+	<div class="col-sm-9">
+		
+		<!-- The AngularJS application is defined by ng-app. The application runs inside a div.-->
+		<!-- The ng-app directive tells AngularJS that the div element is the "owner" of an AngularJS application. -->
+
+
+		<!--The ng-controller directive names the controller object.-->
+		<!-- The myCtrl function is a JavaScript object constructor. It is used in your script to access the variables -->
+		<!-- The ng-init directive initialize AngularJS application variables. -->
+		<div ng-app="myApp"  ng-controller="myCtrl" ng:init="maxlen=10;showButton=true;countFromCode=0">
+			
+			<!-- The ng-bind directive binds the innerHTML of the <h1> element to the application variable name. -->
+			<h1>Title : <span ng-bind="applicationTitle"></span></h1>
+			<p><i><span ng-bind="applicationSubTitle"></span></i></p><br>
+			<!-- Check this link for different html formatting http://www.w3schools.com/html/html_formatting.asp -->
+
+
+			  
+			<!-- you have all your examples here -->
+			<div class="bs-example">
+				<div class="panel-group" id="accordion">
+					<!-- This gives the border around each item. it is a bootstrap's panel. -->
+					<div class="panel panel-default">
+						<!-- this is your header -->
+						<div class="panel-heading">
+							<h4 class="panel-title"><a class="accordionLink" data-toggle="collapse" data-parent="#accordion" href="#inputExample">Basic input examples</a></h4>
+						</div>
+						
+						<!-- this is your accordion content -->
+						<div id="inputExample" class="panel-collapse collapse in">
+							<div class="panel-body" >
+								 
+								 <div id="textMaxLength">
+									 <!-- The ng-model directive binds the value of the input field to the application variable name. -->
+									First Name <i>(max {{maxlen}})</i>: <input type="text" maxlength="{{maxlen}}" ng-model="firstName" ng-trim="false"><br>
+									Last Name: <input type="text" maxlength="{{maxlen}}" ng-model="lastName"><br>
+									<br>
+								 </div>
+								
+
+
+								Full Name: <p class="result">{{firstName + " " + lastName}}</p> 
+								<br>
+								Full name using function call : <p class="result">{{fullName()}}</p>
+
+								
+							</div>
+						</div>
+					</div>
+					
+					
+					<!-- This gives the border around each item. it is a bootstrap's panel. -->
+					<div class="panel panel-default">
+						<!-- this is your header -->
+						<div class="panel-heading">
+							<h4 class="panel-title"><a class="accordionLink" data-toggle="collapse" data-parent="#accordion" href="#loopExample">Looping and order example</a></h4>
+						</div>
+						
+						<!-- this is your accordion content -->
+						<div id="loopExample" class="panel-collapse collapse">
+							<div class="panel-body" >
+								
+								Below is an example of loop with filtered items and then ordered : <br>
+								<input type="text" ng-model="filtertext" placeholder="try denm one char at a time"></input>
+									<ul>
+										<li ng-repeat="x in names | filter:filtertext | orderBy:'country' " >
+										{{ x.state + ', ' + x.country |uppercase }} 
+										</li>
+									</ul>
+								
+							</div>
+						</div>
+					</div>
+					
+					
+					<!-- This gives the border around each item. it is bootstrap's panel. -->
+					<div class="panel panel-default">
+						<!-- this is your header -->
+						<div class="panel-heading">
+							<h4 class="panel-title"><a data-toggle="collapse" class="accordionLink" 
+							data-parent="#accordion"  href="#comboExample">Combobox and dropdowns</a></h4>
+						</div>
+						
+						<!-- this is your accordion content -->
+						<div id="comboExample" class="panel-collapse collapse">
+							<div class="panel-body">
+								This is a default combobox which is called as <a href="https://docs.angularjs.org/api/ng/directive/select">select</a>. 
+								<a href="https://docs.angularjs.org/api/ng/directive/ngOptions">You can read more about it here</a><br>
+								  <!-- look at the way ng-options is defined -->
+								  <select ng-model="selected" ng-options="opt.Name for opt in customers" ></select>
+								  <div>Selected Customer: <span ng-bind="selected.Name"></span> is from the country <span ng-bind="selected.Country"></span></div>
+								  
+								 <br><br>
+								 Using a custom combobox solution. <a href="http://stackoverflow.com/questions/21629404/editable-combobox-using-bootstrap-angularjs">Got this solution from this link</a><br>
+								<!-- Look at the script defined in the top -->
+								<combo-box options="customers" label="--Select a customer--" other-label="A customer not on the list..."></combo-box><br>
+			 
+								<br>
+								<p>using a dropdown-menu inside a dropdown</p>
+								<div class="dropdown">
+										<a href="#" data-toggle="dropdown" class="dropdown-toggle">--Select--<b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Another action</a></li>
+										</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					
+					<!-- This gives the border around each item. it is bootstrap's panel. -->
+					<div class="panel panel-default">
+						<!-- this is your header -->
+						<div class="panel-heading">
+							<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" class="accordionLink" 
+							href="#collapseThree">Checkbox example</a></h4>
+						</div>
+						
+						<!-- this is your accordion content -->
+						<div id="collapseThree" class="panel-collapse collapse">
+							<div class="panel-body">
+								<p>Checkbox examples</p>
+								Is this favorite country <input type="checkbox" ng-model="checkboxVM.isFavoriteCountry"> <br>
+								Is favorite country = {{checkboxVM.isFavoriteCountry}}<br/>
+									
+								<br>
+								<input type="checkbox" ng-model="checkboxVM.areYouAdmin" ng-true-value="'an'" ng-false-value="'not an'"> Is admin <br>
+								You are {{checkboxVM.areYouAdmin}} admin<br/>
+
+								<br>
+								<input type="checkbox" ng-model="showButton">Show Button<button ng-show=showButton >My ng-show is binded</button>
+								<br><br>
+							</div>
+						</div>
+					</div>
+					
+					
+					<!-- This gives the border around each item. it is a bootstrap's panel. -->
+					<!-- Events -->
+					<div class="panel panel-default">
+						<!-- this is your header -->
+						<div class="panel-heading">
+							<h4 class="panel-title"><a data-toggle="collapse" class="accordionLink" 
+							data-parent="#accordion" href="#eventExample">Events</a></h4>
+						</div>
+						
+						<!-- this is your accordion content -->
+						<div id="eventExample" class="panel-collapse collapse">
+							<div class="panel-body">
+									 <div>
+									<button ng-click="count = count + 1">Click me! {{ count }}</button>
+									<button title="In chrome browser, a prompt appears on top of the window unlike firefox"
+									ng-click=buttonClickFunction()>Click me! {{ countFromCode }}. see the messagebox</button>
+									</div>
+									<br><br>
+									
+								
+									<button type="button" 
+									 title="This is achieved in the HTML page itself" 
+										onclick="document.getElementById('myTimeExample').innerHTML = Date()">
+										Click me to display Date and Time.</button>
+									<p id="myTimeExample"></p>
+									<br>
+									
+									
+									<a 
+									href="javascript:void(document.getElementById('eventExample').style.backgroundColor='Gray');">
+									  Click me to change the background color of this div. This is a javascript void operator concept.
+									</a>
+									
+									<a href="http://www.w3schools.com/jsref/dom_obj_event.asp">Here is the link for different HTML DOM events</>
+		
+							</div>
+						</div>
+					</div>
+					
+					
+					
+					<!-- This gives the border around each item. it is a bootstrap's panel. -->
+					<!-- button example -->
+					<div class="panel panel-default">
+						<!-- this is your header -->
+						<div class="panel-heading">
+							<h4 class="panel-title"><a data-toggle="collapse" class="accordionLink" 
+							data-parent="#accordion" href="#buttonExample">Buttons</a></h4>
+						</div>
+						
+						<!-- this is your accordion content -->
+						<div id="buttonExample" class="panel-collapse collapse">
+							<div class="panel-body">
+								<p>Toggle button:</p>
+									<div class="bs-example">
+											<!-- Trigger Button HTML -->
+											<input type="button" class="btn btn-primary" data-toggle="collapse" data-target="#toggleDemo" value="Click me">
+											<!-- Collapsible Element HTML -->
+											<div id="toggleDemo" class="collapse in">
+												<p>This is a simple example of expanding and collapsing individual element via data attribute. 
+												Click on the <b>Toggle Button</b> button to see the effect.</p>
+											</div>
+									</div>
+									<br>
+									<br>
+									
+									<p><b>More links:</b></p>
+									<a href="http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-buttons.php">Simple buttons</a>
+									<br>
+									<a href="http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-dropdowns.php">Bootstrap dropdown examples</a>
+									<br>
+									
+							</div>
+						</div>
+					</div>
+					
+					
+					
+					<!-- Horizontal form. -->
+					<div class="panel panel-default">
+						<!-- this is your header -->
+						<div class="panel-heading">
+							<h4 class="panel-title"><a data-toggle="collapse" class="accordionLink" 
+							data-parent="#accordion" href="#horizontalForm">Horizontal form</a></h4>
+						</div>
+						
+						<!-- this is your accordion content -->
+						<div id="horizontalForm" class="panel-collapse collapse">
+							<div class="panel-body">
+								<h2>Horizontal form: control states</h2>
+									  <form class="form-horizontal" role="form">
+										<div class="form-group">
+										  <label class="col-sm-2 control-label">Focused</label>
+										  <div class="col-sm-10">
+											<input class="form-control" id="focusedInput" type="text" value="Click to focus...">
+										  </div>
+										</div>
+										<div class="form-group">
+										  <label for="inputPassword" class="col-sm-2 control-label">Disabled</label>
+										  <div class="col-sm-10">
+											<input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
+										  </div>
+										</div>
+										<fieldset disabled>
+										  <div class="form-group">
+											<label for="disabledTextInput" class="col-sm-2 control-label">Disabled input and select list (Fieldset disabled)</label>
+											<div class="col-sm-10">
+											  <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+											</div>
+										  </div>
+										  <div class="form-group">
+											<label for="disabledSelect" class="col-sm-2 control-label"></label>
+											<div class="col-sm-10">
+											  <select id="disabledSelect" class="form-control">
+												<option>Disabled select</option>
+											  </select>
+											</div>
+										  </div>
+										</fieldset>
+										<div class="form-group has-success has-feedback">
+										  <label class="col-sm-2 control-label" for="inputSuccess">Input with success and glyphicon</label>
+										  <div class="col-sm-10">
+											<input type="text" class="form-control" id="inputSuccess">
+											<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+										  </div>
+										</div>
+										<div class="form-group has-warning has-feedback">
+										  <label class="col-sm-2 control-label" for="inputWarning">Input with warning and glyphicon</label>
+										  <div class="col-sm-10">
+											<input type="text" class="form-control" id="inputWarning">
+											<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+										  </div>
+										</div>
+										<div class="form-group has-error has-feedback">
+										  <label class="col-sm-2 control-label" for="inputError">Input with error and glyphicon</label>
+										  <div class="col-sm-10">
+											<input type="text" class="form-control" id="inputError">
+											<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+										  </div>
+										</div>
+									  </form>
+									
+							</div>
+						</div>
+					</div>
+					
+					
+					
+					<!-- Horizontal form. -->
+					<div class="panel panel-default">
+						<!-- this is your header -->
+						<div class="panel-heading">
+							<h4 class="panel-title"><a data-toggle="collapse" class="accordionLink" 
+							data-parent="#accordion" href="#alerts">Alerts</a></h4>
+						</div>
+						
+						<!-- this is your accordion content -->
+						<div id="alerts" class="panel-collapse collapse">
+							<div class="panel-body">
+								<p>The a element with class="close" and data-dismiss="alert" is used to close the alert box.</p>
+								 <div class="alert alert-success">
+									<a href="#" class="close" data-dismiss="alert" aria-label="close" style="text-decoration: none" >&times;</a>
+									<strong>Success!</strong> This alert box could indicate a successful or positive action.
+								 </div>
+								<div class="alert alert-info">
+									<a href="#" class="close" data-dismiss="alert" aria-label="close" style="text-decoration: none">&times;</a>
+									<strong>Info!</strong> This alert box could indicate a neutral informative change or action.
+								</div>
+								<div class="alert alert-warning">
+								
+									<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+									<strong class="pull-right">Warning -->   </strong> Since the default style for 'a' has underline, you see underline for 'X'.
+								
+									
+								</div>
+								<div class="alert alert-danger">
+									<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+									<strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- end of accordion -->	
+	
+			</div><!-- end of bs-example -->
+
+
+
+
+			<p><b>Below are some reference tutorials:</b></p>
+			<a href="http://www.w3schools.com/jsref/default.asp">Java script tutorials</a><br>
+			 <a href="http://www.w3schools.com/html/html_basic.asp">Basic html tags are exxplained here</a> <br>
+			 <a href="http://www.w3schools.com/html/html_formatting.asp">About html formatting</a><br>
+			 <a href="http://www.w3schools.com/css/css_examples.asp">Lot of css examples</a><br>
+			 <a href="http://www.w3schools.com/css/default.asp">CSS tutorials</a><br>
+			 <a href="https://angular-ui.github.io/bootstrap/">Bootstrap framework which provides more functionality</a><br>
+			 <a href="http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-dropdowns.php">Fantastic bootstrap examples and tutorials</a><br>
+			 <a href="http://codepen.io/rlo206/pen/aOebzd">Nice animated buttons</a><br>
+			 
+			 <br> <br> <br>
+			<p><b>Below are some links that makes comparisons with other frameworks:</b></p>
+			 <a href="https://www.codementor.io/angularjs/tutorial/beginners-angular-ember-backbone">Comparison between AngularJS, Ember.js, or Backbone.js</a> <br>
+			 
+			<br>
+			 <div class="panel panel-default">
+			 
+				<div class="panel-body">
+				<p>Here are some UX achieved examples.</p><br>
+				<a href="http://codepen.io/jbeurel/pen/zuDAl">This is a cool animated progress bar</a>
+				</div> 
+					<div class="panel-footer clearfix">
+						
+						<!-- pull right is a bootstrap style to pull an element to right -->
+						<div class="pull-right">
+						
+							<!-- btn btn-primary is a style from bootstrap -->
+							<div class="btn btn-primary">
+								<a href="http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/" class="noUnderline" >Learn More</a>
+							</div>
+									
+							<div class="btn btn-default">
+								<a href="http://www.facebook.com" class="noUnderline" >Go to facebook</a>
+							</div>
+		
+						</div>	
+				</div>		
+			</div>
+	
+		</div><!-- end of myapp -->
+			
+
+	</div>	<!-- end of col-sm-9 -->
+	
+
+</div><!-- end of cotainer -->
+
+
+
+
+</body>
+</html>

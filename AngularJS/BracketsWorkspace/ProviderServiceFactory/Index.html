@@ -1,0 +1,68 @@
+<html>
+
+<head>
+     <script src="https://code.angularjs.org/1.2.4/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="carApp">
+   <div ng-controller="CarController1">
+    <table>
+       <thead>
+        <tr>
+           <th>Services</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+        <td>CarProvider.wheels</td>
+        <td>{{provider.numCylinder}} ,  Dealer is {{provider.dealer}}</td>
+        </tr>
+           
+           <tr>
+        <td>CarService.wheels</td>
+        <td>{{service.numCylinder}} ,  Dealer is {{service.dealer}}</td>
+        </tr>
+           
+           <tr>
+        <td>CarFactory.wheels</td>
+        <td>{{factory.numCylinder}} ,  Dealer is {{factory.dealer}}</td>
+        </tr>
+           
+        </thead>
+       </table>
+    
+    </div> 
+    
+    
+    <div ng-controller="CarController2">
+    <table>
+       <thead>
+        <tr>
+           <th>Services</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+        <td>CarProvider.wheels</td>
+        <td>{{provider.numCylinder}} ,  Dealer is {{provider.dealer}}</td>
+        </tr>
+           
+           <tr>
+        <td>CarService.wheels</td>
+        <td>{{service.numCylinder}} ,  Dealer is {{service.dealer}}</td>
+        </tr>
+           
+           <tr>
+        <td>CarFactory.wheels</td>
+        <td>{{factory.numCylinder}} ,  Dealer is {{factory.dealer}}</td>
+        </tr>
+           
+        </thead>
+       </table>
+    
+    </div> 
+    
+    
+    
+</body >
+    
+
+</html>

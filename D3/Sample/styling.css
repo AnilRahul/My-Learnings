@@ -1,0 +1,29 @@
+/*    #header{
+        transition: 1s;
+        background-color: coral;
+        color: black;
+    }
+    .mouse_come_here{
+        width: 0px;
+        height: 0px;
+        opacity: .0;
+    }
+    .visible{
+        height: 100%;
+        opacity: 1.0;
+    }*/
+
+
+#wrapper {
+    background-color: #e00;
+    position: relative;
+    top: 30px;
+}
+#sidebar {
+    background-color: #aeaeae;
+    overflow: hidden;
+    height: 100px;
+}
+
+
+

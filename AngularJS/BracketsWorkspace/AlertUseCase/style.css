@@ -1,0 +1,45 @@
+body {
+    padding: 10px;
+    padding-right:30px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 5px;
+    padding: 0px;
+}
+
+.levelOne {
+    background-color: #006DCC;
+    color: white;
+}
+.levelTwo {
+    background-color: #FF8C00;
+    color: black;
+}
+
+
+tr td:first-child,
+tr th:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+tr td:last-child,
+tr th:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.clickableCol {
+    cursor: pointer;
+}
+p, textarea {
+    font-variant: small-caps !important;
+    text-rendering: auto;
+}
+td, th {
+    font-size: 8pt;
+}
+table {
+    padding: 0px;
+}

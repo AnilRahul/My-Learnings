@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>AngularJS Graph Example</title>
+<!-- Links to : 1. AngularJS file  2. For charts - morris.js  3. Dependecies for morris.js are jquery.js and raphael.js(for creating graphics) -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script src="app.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+</head>
+
+<!-- Accesing ng-app module and ng-controller in html -->
+<body ng-app="graphApp" ng-controller="graphController">
+
+<h1>Bar Graph</h1>
+<!-- Injecting Chart directive using element attribute in html . Note : In the directive we represnt bar chart using camelcase i.e second word in capital(barChart) , however accessing it in html we have to use an dash in between the  word (bar-chart)-->
+	<bar-chart xkey="xkey"  ykeys="ykeys" labels="labels" data="points"></bar-chart>
+	<br></br>
+<h1>Line Graph</h1>
+	<line-chart  xkey="xkey"  ykeys="ykeys" labels="labels" data="points"></line-chart>
+	
+	<br></br>
+	<br></br>
+<h1>Reference Links</h1>	
+<div>
+<a href="http://www.w3schools.com/angular/default.asp" target="_blank">AngularJS Tutorials Basics</a>
+<br></br>
+
+<a href="https://docs.angularjs.org/api" target="_blank">AngularJS API Reference</a>
+<br></br>
+
+<a href="http://morrisjs.github.io/morris.js/lines.html" target="_blank">Morris JS</a>
+<br></br>
+</div>
+</body>
+</html>
+

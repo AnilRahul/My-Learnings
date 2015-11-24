@@ -1,0 +1,37 @@
+p {
+    margin-bottom: 0.15cm;
+	color:rgba(1,91,182,1);
+}
+
+p.result {
+	color:rgba(250,60,80,1);
+	
+	/* this will ensure it doesnt go to next line */
+	display:inline;
+}
+
+a {
+    margin-bottom: 0.15cm;
+	color:rgba(120,120,120,1);
+	text-decoration: underline;
+}
+
+a.noUnderline {
+	/* inherit keyword is used to inherit the value from the style defined in its parent. In this case 'a' */
+    margin-bottom: inherit;
+	color:inherit;
+	text-decoration: none;
+}
+
+a.accordionLink {
+	color:rgba(1,91,182,1);
+	font-weight: bold;
+    text-decoration: none;
+}
+
+
+
+.bs-example{
+	/* Top and bottom margin is 20 and sides or zero */
+	margin: 20px 0px;
+}
